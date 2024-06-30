@@ -1,0 +1,17 @@
+{
+  "name": "campuscast-v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --max-old-space-size=384 node_modules/node-red/red.js --settings ./settings.js"
+  },
+  "author": "Mohammed Ashad MM",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@node-red-contrib-themes/theme-collection": "^4.0.1",
+    "dotenv": "^16.4.5",
+    "node-red": "^4.0.1",
+    "when": "^3.7.8"
+  }
+}
