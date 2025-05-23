@@ -1,203 +1,310 @@
 body {
-    color: #555;
+  color: var(--red-ui-primary-text-color);
+  background: var(--red-ui-primary-background);
+  font-family: "Roboto", sans-serif;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: var(--red-ui-text-color-link);
 }
-.title, .row2, .nodes {
-    background: #eee;
+.title,
+.row2,
+.nodes {
+  background: var(--red-ui-secondary-background);
 }
-
 
 .blurb a {
-    text-decoration: underline;
-    color: #555;
+  text-decoration: underline;
+  color: var(--red-ui-text-color-link);
 }
 a.button {
-    text-decoration: none;
-    display: inline-block;
-    padding: 30px 40px;
-    border-radius: 5px;
-    background: #aa6767;
-    color: #eee;
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background: var(--red-ui-deploy-button-background);
+  color: var(--red-ui-deploy-button-color);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 a.button:hover {
-    background: #7F4545;
+  background: var(--red-ui-deploy-button-background-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-.row3, .row4, .row5 {
-    background: #fff;
+a.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+a.button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+a.button:hover::after {
+  animation: ripple 1s ease-out;
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+.row3,
+.row4,
+.row5 {
+  background: var(--red-ui-primary-background);
 }
 
 .row9 {
-    background: #676767;
+  background: var(--red-ui-secondary-background);
 }
 .footer {
-    background: #333;
+  background: var(--red-ui-header-background);
 }
 
 .footer .grid {
-    color: #eee;
-    padding: 20px 0;
-    font-family: Arial;
+  color: var(--red-ui-primary-text-color);
+  padding: 20px 0;
+  font-family: "Roboto", sans-serif;
 }
 .footer a {
-    color: #eee;
+  color: var(--red-ui-text-color-link);
 }
 
 .footer .content {
-    height: auto;
-    min-height: 0;
-    margin: 20px auto;
+  height: auto;
+  min-height: 0;
+  margin: 20px auto;
 }
 
 .footer .headline {
-    margin: 80px auto 20px auto;
+  margin: 80px auto 20px auto;
 }
 .footer {
-    text-align: center;
+  text-align: center;
 }
 
 .ets-link {
-    margin: 10px 0px;
-
+  margin: 10px 0px;
 }
 .ets-globe {
-    width: 60px;
-    vertical-align: middle;
+  width: 60px;
+  vertical-align: middle;
 }
 
 .content {
-    margin: 80px 0;
+  margin: 80px 0;
+  animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .blurb {
-    font-family: Arial;
-    font-size: 16px;
-    line-height: 1.6em;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: var(--red-ui-primary-text-color);
 }
 .blurb p {
-    margin-top: 0;
+  margin-top: 0;
 }
-.blurb h3, .nodes h3 {
-    font-family: "Roboto Slab";
-    font-size: 24px;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 0.5em;
+.blurb h3,
+.nodes h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: var(--red-ui-primary-text-color);
 }
 .blurb h4 {
-    font-family: "Roboto Slab";
-    font-size: 18px;
-    font-weight: normal;
-    margin-top: 0.8em;
-    margin-bottom: 0.5em;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+  color: var(--red-ui-primary-text-color);
 }
 .feature {
-    max-width: 485px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  max-width: 485px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-.row3 .feature, .row4 .feature, .row5 .feature {
-    border: none;
+.row3 .feature,
+.row4 .feature,
+.row5 .feature {
+  border: none;
 }
 .feature img {
-    max-width: 445px;
-    width: 100%;
+  max-width: 445px;
+  width: 100%;
 }
 .title .content {
-    margin: 80px 0 20px 0;
-    height: 280px;
-    text-align: center;
+  margin: 80px 0 20px 0;
+  height: 280px;
+  text-align: center;
 }
 .title h1 {
-    font-size: 36px;
-    font-family: "Roboto Slab";
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #676767;
+  font-size: 36px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--red-ui-primary-text-color);
 }
 .title h2 {
-    margin-top: 0px;
-    font-size: 20px;
-    font-family: "Roboto Slab";
-    font-weight: normal;
-    color: #555;
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: var(--red-ui-secondary-text-color);
 }
 .title img {
-    margin: auto;
-    max-width: 769px;
-    width: 50%;
+  margin: auto;
+  max-width: 769px;
+  width: 50%;
 }
 
 .nodes .content {
-    text-align: center;
-    height: auto;
-    min-height: 0;
-    margin: 40px 0 40px 0;
+  text-align: center;
+  height: auto;
+  min-height: 0;
+  margin: 40px 0 40px 0;
 }
 .nodes .grid {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .nodes h3 {
-    text-align: center;
+  text-align: center;
 }
 .nodes h4 {
-    font-family: "Roboto Slab";
-    text-align: center;
-    font-weight: normal;
-    margin-top: 3px;
-    height: 50px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 3px;
+  height: 50px;
+  color: var(--red-ui-primary-text-color);
 }
 
 .header {
-    font-family: "Roboto Slab";
-    font-size: 20px;
-    line-height: 50px;
-    color: #999;
-    padding: 0px 10px;
-    height: 50px;
-    background: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  line-height: 50px;
+  color: var(--red-ui-primary-text-color);
+  padding: 0px 10px;
+  height: 50px;
+  background: var(--red-ui-header-background);
 }
 .header-content {
-    width: 100%;
+  width: 100%;
   max-width: 1155px;
   min-width: 755px;
   margin: 0 auto;
 }
 .header-content .logo {
-    vertical-align: middle;
-    height: 60px;
+  vertical-align: middle;
+  height: 40px;
 }
-.header-content .logo-name {
-    vertical-align: middle;
-    height: 20px;
+.header-content .logo-text {
+  display: inline-block;
+  margin: 0;
+  color: var(--red-ui-primary-text-color);
+  font-size: 24px;
+  font-weight: 500;
 }
 .header-content a {
-    color: #999;
+  color: var(--red-ui-primary-text-color);
 }
 .header-content ul {
-    float: right;
-    list-style-type: none;
-    margin: -0;
-    padding: 0;
-    background: #333;
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: var(--red-ui-secondary-background);
 }
 .header-content li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 .header-content li a {
-    display: block;
-    padding: 0 15px 0 15px;
+  display: block;
+  padding: 0 15px 0 15px;
 }
 .header-content li.current {
-    background: url(images/tab.png) 50% bottom no-repeat;
+  background: var(--red-ui-secondary-background-selected);
 }
 .header-content li.current a {
-    color: #fff;
+  color: var(--red-ui-primary-text-color);
+}
+
+/* Staggered animation for feature list */
+.blurb ul li {
+  opacity: 0;
+  animation: slideIn 0.5s ease-out forwards;
+}
+.blurb ul li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.blurb ul li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.blurb ul li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.blurb ul li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add these styles for the new Font Awesome icons */
+.blurb ul li i {
+  margin-right: 10px;
+  color: var(--red-ui-deploy-button-background);
+  font-size: 1.2em;
+  width: 24px;
+  text-align: center;
+}
+
+a.button i {
+  margin-right: 8px;
+  font-size: 1.1em;
 }
