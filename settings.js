@@ -178,12 +178,20 @@ var settings = (module.exports = {
    * in front of all admin http routes. For example, to set custom http
    * headers. It can be a single function or an array of middleware functions.
    */
-  // httpAdminMiddleware: function(req,res,next) {
-  //    // Set the X-Frame-Options header to limit where the editor
-  //    // can be embedded
-  //    //res.set('X-Frame-Options', 'sameorigin');
-  //    next();
-  // },
+  httpAdminMiddleware: function (req, res, next) {
+    // Set the X-Frame-Options header to limit where the editor
+    // can be embedded
+    //res.set('X-Frame-Options', 'sameorigin');
+
+    const customImages = ["/favicon.ico"];
+    if (customImages.includes(req.url)) {
+      res.sendFile(
+        path.resolve(path.join(__dirname, "public/images", req.url))
+      );
+    } else {
+      next();
+    }
+  },
 
   /** The following property can be used to set addition options on the session
    * cookie used as part of adminAuth authentication system
@@ -508,6 +516,7 @@ var settings = (module.exports = {
     // firebaseAdmin: require("firebase-admin"),
     // simpleTtsMp3: require("simple-tts-mp3"),
     os: require("os"),
+    GoogleGenAI: require("@google/genai").GoogleGenAI,
   },
 
   /** The maximum number of messages nodes will buffer internally as part of their

@@ -1,87 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>elabinsRED - Personal Node-RED Instance</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="images/favicon-96x96.png"
+    />
+    <link rel="manifest" href="images/web-app-manifest-192x192.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link href="css/midnight-red.css" rel="stylesheet" media="screen" />
+    <link href="css/simplegrid.css" rel="stylesheet" media="screen" />
+    <link href="css/style.css" rel="stylesheet" media="screen" />
+  </head>
 
-<head>
-
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CampusCast</title>
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet'
-            type='text/css'>
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-
-        <link href="css/simplegrid.css" rel="stylesheet" media="screen">
-        <link href="css/style.css" rel="stylesheet" media="screen">
-
-
-    </head>
-
-<body>
-
+  <body>
     <div class="header">
-        <div class="header-content">
-            <a href="/"><img class="logo" src="images/logo.svg" /> <img class="logo-name" src="images/name.svg" /></a>
-        </div>
+      <div class="header-content">
+        <a href="/">
+          <img
+            src="images/logo.png"
+            alt="elabinsRED Logo"
+            class="logo"
+            style="height: 40px; margin-right: 10px"
+          />
+          <h1 class="logo-text">elabinsRED</h1>
+        </a>
+      </div>
     </div>
-    <!-- Grid 1 -->
+
     <div class="title">
-        <div class="grid">
-            <div class="col-1-1">
-                <div class="content">
-                    <img src="images/logo_wide.svg" />
-                    <h2>An IoT-Based Announcement System</h2>
-                </div>
-            </div>
+      <div class="grid">
+        <div class="col-1-1">
+          <div class="content">
+            <img
+              src="/images/nr-image-1.png"
+              alt="Node-RED Logo"
+              style="max-width: 300px; margin-bottom: 20px"
+            />
+            <h1>Welcome to elabinsRED</h1>
+            <h2>Your Personal Node-RED Instance</h2>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!-- Grid 1/2 -->
     <div class="row2">
-        <div class="grid">
-            <div class="col-1-2">
-                <div class="content blurb">
-                    <p>Welcome to CampusCast, an IoT-based announcement system that offers a modern and efficient
-                        solution for communication within academic institutions. With this system, college authorities
-                        can easily send voice announcements with customizable routes to specific classrooms, branches,
-                        years, or classes. CampusCast helps save time and resources by providing a targeted and timely
-                        communication channel, while also keeping students and faculty informed about important updates
-                        and events.</p>
-                </div>
-            </div>
-            <div class="col-1-2">
-                <div class="content blurb">
-                    <p style="text-align: center"><a style="width:350px;" class="button" href="#">Download</a></p>
-                </div>
-            </div>
+      <div class="grid">
+        <div class="col-1-2">
+          <div class="content blurb">
+            <p>
+              elabinsRED is a personal Node-RED instance that allows you to
+              create powerful automation flows and IoT applications. With its
+              visual programming interface, you can easily connect different
+              services, devices, and APIs to create custom workflows and
+              automations.
+            </p>
+          </div>
         </div>
+        <div class="col-1-2">
+          <div class="content blurb">
+            <p style="text-align: center">
+              <a href="/admin" class="button">
+                <i class="fa-solid fa-code"></i> Open Editor
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Grid 1/2 -->
     <div class="row3">
-        <div class="grid">
-            <div class="col-1-1">
-                <div class="content blurb">
-                    <h3 id="custom"></h3>
-                    <p>
-                    <p>
-                </div>
+      <div class="grid">
+        <div class="col-1-1">
+          <div class="content blurb">
+            <h3>Features</h3>
+            <div class="grid">
+              <div class="col-1-2">
+                <ul style="list-style: none; padding: 0">
+                  <li>
+                    <i class="fa-solid fa-diagram-project"></i>
+                    Visual Flow Programming
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-microchip"></i>
+                    IoT Device Integration
+                  </li>
+                </ul>
+              </div>
+              <div class="col-1-2">
+                <ul style="list-style: none; padding: 0">
+                  <li>
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    Custom Node Support
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-bolt"></i>
+                    Real-time Data Processing
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="footer">
-        <div class="grid">
-            <div class="content">
-                <div class="ets-link"><a href="#">Copyright © 2023 CampusCast. All rights reserved.</a></div>
-                <div class="ets-link"><a href="#"><img class="ets-globe" src="images/logo.svg" /> </a></div>
-            </div>
+      <div class="grid">
+        <div class="content">
+          <div class="ets-link">
+            Copyright © 2025 <a href="https://elabins.com">elabins.com</a>. All
+            rights reserved.
+          </div>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
