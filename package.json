@@ -1,5 +1,5 @@
 {
-  "name": "campuscast-v2",
+  "name": "elabins-red",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,6 @@
     "@node-red-contrib-themes/theme-collection": "^4.0.11",
     "dotenv": "^16.5.0",
     "node-red": "^4.0.9",
-    "node-red-contrib-browser-utils": "~0.0.11",
     "node-red-contrib-telegrambot": "~16.3.1",
     "when": "^3.7.8"
   }
