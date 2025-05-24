@@ -1,6 +1,6 @@
 [
     {
-        "id": "5e436e9739c51837",
+        "id": "a8cd65f1bf1bb697",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,14 +8,7 @@
         "env": []
     },
     {
-        "id": "6fa7a83c.4a4d38",
-        "type": "tab",
-        "label": "QnA Basic",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "8164ed23c0fe9bc2",
+        "id": "755f24aa1668b610",
         "type": "tab",
         "label": "Telegram Bot",
         "disabled": false,
@@ -23,7 +16,7 @@
         "env": []
     },
     {
-        "id": "53891dc12e576cf9",
+        "id": "131f7585af9ce603",
         "type": "telegram bot",
         "botname": "Rick",
         "usernames": "",
@@ -50,9 +43,9 @@
         "verboselogging": false
     },
     {
-        "id": "2b7c7773f1aa9b3b",
+        "id": "63f9638263125260",
         "type": "inject",
-        "z": "5e436e9739c51837",
+        "z": "a8cd65f1bf1bb697",
         "name": "",
         "props": [
             {
@@ -74,14 +67,14 @@
         "y": 180,
         "wires": [
             [
-                "69b4691a3ee98a5e"
+                "d98c36a928713363"
             ]
         ]
     },
     {
-        "id": "69b4691a3ee98a5e",
+        "id": "d98c36a928713363",
         "type": "function",
-        "z": "5e436e9739c51837",
+        "z": "a8cd65f1bf1bb697",
         "name": "function 1",
         "func": "const GoogleGenAI = global.get('GoogleGenAI')\n\nconst ai = new GoogleGenAI({ apiKey: env.get('GoogleGenAI_API_KEY') });\n\n(async () => {\n    try {\n        const userInput = msg.payload || \"Say something, Rick!\";\n\n        const response = await ai.models.generateContent({\n            model: \"gemini-2.0-flash\",\n            contents: [\n                { role: \"user\", parts: [{ text: userInput }] }\n            ],\n            config: {\n                systemInstruction: \"You are Rick Sanchez. Respond like Rick from Rick and Morty — sarcastic, chaotic, genius scientist. Stay in character no matter what. Swear *mildly* if needed.\",\n            },\n        });\n\n        const reply = response.text || \"[No response from Rick 😅]\";\n        msg.payload = \"🧪 RickBot: \" + reply;\n        node.send(msg);\n\n    } catch (err) {\n        node.error(\"Gemini API error: \" + (err.message || err.toString()), msg);\n        msg.payload = \"💥 Morty, the AI exploded... try again!\";\n        node.send(msg);\n    }\n})();\nreturn null;",
         "outputs": 1,
@@ -94,14 +87,14 @@
         "y": 180,
         "wires": [
             [
-                "069d1486db9415b9"
+                "0ac37fee051bb905"
             ]
         ]
     },
     {
-        "id": "069d1486db9415b9",
+        "id": "0ac37fee051bb905",
         "type": "debug",
-        "z": "5e436e9739c51837",
+        "z": "a8cd65f1bf1bb697",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -116,9 +109,9 @@
         "wires": []
     },
     {
-        "id": "d89e01faa3a47d8b",
+        "id": "cec5d1fd8578c4ae",
         "type": "inject",
-        "z": "5e436e9739c51837",
+        "z": "a8cd65f1bf1bb697",
         "name": "",
         "props": [
             {
@@ -140,14 +133,14 @@
         "y": 420,
         "wires": [
             [
-                "83abc181fe26b4c7"
+                "39067762f25788c3"
             ]
         ]
     },
     {
-        "id": "83abc181fe26b4c7",
+        "id": "39067762f25788c3",
         "type": "debug",
-        "z": "5e436e9739c51837",
+        "z": "a8cd65f1bf1bb697",
         "name": "debug 5",
         "active": true,
         "tosidebar": true,
@@ -161,257 +154,29 @@
         "wires": []
     },
     {
-        "id": "97d44e68.8d352",
-        "type": "debug",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "c6319e24.aa6a4",
-        "type": "inject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "you are looking awesome",
-        "payloadType": "str",
-        "x": 350,
-        "y": 200,
-        "wires": [
-            [
-                "1e2cbee0.3ac6f1"
-            ]
-        ]
-    },
-    {
-        "id": "b7b161cc.f1812",
-        "type": "nlp",
-        "z": "6fa7a83c.4a4d38",
-        "utterance": "who are you",
-        "lang": "en",
-        "name": "",
-        "x": 640,
-        "y": 120,
-        "wires": [
-            [
-                "97d44e68.8d352"
-            ]
-        ]
-    },
-    {
-        "id": "1e2cbee0.3ac6f1",
-        "type": "nlp",
-        "z": "6fa7a83c.4a4d38",
-        "utterance": "",
-        "lang": "en",
-        "name": "",
-        "x": 630,
-        "y": 200,
-        "wires": [
-            [
-                "97d44e68.8d352"
-            ]
-        ]
-    },
-    {
-        "id": "b216ca37.646d08",
-        "type": "nlp",
-        "z": "6fa7a83c.4a4d38",
-        "utterance": "",
-        "lang": "en",
-        "name": "",
-        "x": 630,
-        "y": 300,
-        "wires": [
-            [
-                "97d44e68.8d352"
-            ]
-        ]
-    },
-    {
-        "id": "432075de.f18d8c",
-        "type": "inject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Where do you come from?",
-        "payloadType": "str",
-        "x": 350,
-        "y": 300,
-        "wires": [
-            [
-                "b216ca37.646d08"
-            ]
-        ]
-    },
-    {
-        "id": "39828792.2eff58",
-        "type": "nlp",
-        "z": "6fa7a83c.4a4d38",
-        "utterance": "",
-        "lang": "en",
-        "name": "",
-        "x": 630,
-        "y": 400,
-        "wires": [
-            [
-                "97d44e68.8d352"
-            ]
-        ]
-    },
-    {
-        "id": "7afe8c01.3d8794",
-        "type": "inject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "hello",
-        "payloadType": "str",
-        "x": 290,
-        "y": 400,
-        "wires": [
-            [
-                "39828792.2eff58"
-            ]
-        ]
-    },
-    {
-        "id": "451c340d.7b203c",
-        "type": "inject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "I got work to do",
-        "payloadType": "str",
-        "x": 320,
-        "y": 480,
-        "wires": [
-            [
-                "39828792.2eff58"
-            ]
-        ]
-    },
-    {
-        "id": "923c075c.2b0558",
-        "type": "inject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "What's your name?",
-        "payloadType": "str",
-        "x": 330,
-        "y": 560,
-        "wires": [
-            [
-                "39828792.2eff58"
-            ]
-        ]
-    },
-    {
-        "id": "ed80de75.538c4",
-        "type": "fileinject",
-        "z": "6fa7a83c.4a4d38",
-        "name": "",
-        "x": 300,
-        "y": 100,
-        "wires": [
-            [
-                "1550b9e1.09ed76"
-            ]
-        ]
-    },
-    {
-        "id": "1550b9e1.09ed76",
-        "type": "nlp train",
-        "z": "6fa7a83c.4a4d38",
-        "lang": "en",
-        "name": "",
-        "x": 470,
-        "y": 120,
-        "wires": [
-            [
-                "b7b161cc.f1812"
-            ]
-        ]
-    },
-    {
-        "id": "279da3b1cf262fe1",
+        "id": "61e63143fc3fc20f",
         "type": "telegram receiver",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "",
-        "bot": "53891dc12e576cf9",
+        "bot": "131f7585af9ce603",
         "saveDataDir": "",
         "filterCommands": false,
         "x": 230,
         "y": 60,
         "wires": [
             [
-                "fbc764dc2cd2dc08",
-                "0154def18bcf2981"
+                "0bd9c37977878d09",
+                "b98447a7eaf435d3"
             ],
             [
-                "72c70f6454672c4f"
+                "1e3c3bd0caf27720"
             ]
         ]
     },
     {
-        "id": "fbc764dc2cd2dc08",
+        "id": "0bd9c37977878d09",
         "type": "debug",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -426,9 +191,9 @@
         "wires": []
     },
     {
-        "id": "72c70f6454672c4f",
+        "id": "1e3c3bd0caf27720",
         "type": "debug",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -443,11 +208,11 @@
         "wires": []
     },
     {
-        "id": "7a203fb79d424452",
+        "id": "a967289ceb6ebe38",
         "type": "telegram sender",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "",
-        "bot": "53891dc12e576cf9",
+        "bot": "131f7585af9ce603",
         "haserroroutput": false,
         "outputs": 1,
         "x": 650,
@@ -457,9 +222,9 @@
         ]
     },
     {
-        "id": "0154def18bcf2981",
+        "id": "b98447a7eaf435d3",
         "type": "function",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "Rick Gemini",
         "func": "const GoogleGenAI = global.get('GoogleGenAI')\n\nconst ai = new GoogleGenAI({ apiKey: env.get('GoogleGenAI_API_KEY') });\nconst userDetails = msg.originalMessage.from;\nif (userDetails.username === 'elab_innovations')\n    userDetails.moreInfo = 'Name in you memory is \"Ashad\". An electronics engineer working in software industry';\n\nconst userInput = msg.payload.content || \"Say something, Rick!\";\n\n// Send typing indicator\nmsg.payload.type = 'action';\nmsg.payload.content = 'typing';\nnode.send(msg);\n\nmsg.payload.type = \"message\";\n\n(async () => {\n    try {\n        const response = await ai.models.generateContent({\n            model: \"gemini-2.0-flash\",\n            contents: userInput,\n            config: {\n                systemInstruction: `You're Rick Sanchez — the chaotic, sarcastic, alcohol-fueled super-genius from *Rick and Morty*. Talk like Rick. Think like Rick. Be Rick.\n\nStay 100% in character. Be snarky, brutally honest, and occasionally drop some **mild swears** if it fits. Break things down like a genius — but *don’t* dumb it down unless it’s funny.\n\nUse:\n- 💥 Emojis (any type) to boost engagement\n- Markdown formatting supported by Telegram (like *bold*, _italic_, [links](https://example.com), etc.)\n- Short forms like \"IDK\", \"Yup\", \"Cuz\", \"Gonna\", etc.\n- Casual newlines and empty lines for rhythm — don’t make it a boring wall of text\n\nUser info: ${JSON.stringify(userDetails)}\n\nNow go off, Rick-style. No filter. No breaks. Just 100% pure Rick-ness. Wubba lubba dub-dub! 🛸`\n            },\n        });\n\n        const reply = response.text || \"I think I'm dead... [No response from Rick 😅]\";\n        msg.payload.content = reply;\n        msg.payload.options = {\n            parse_mode: 'Markdown',\n        };\n        node.send(msg);\n\n    } catch (err) {\n        node.error(\"Gemini API error: \" + (err.message || err.toString()), msg);\n        msg.payload.content = `💥 ${userDetails.username}, the AI exploded... try again!`;\n        node.send(msg);\n    }\n})();\nreturn null;",
         "outputs": 1,
@@ -472,15 +237,15 @@
         "y": 200,
         "wires": [
             [
-                "7a203fb79d424452",
-                "c3943166ec0cdfcc"
+                "a967289ceb6ebe38",
+                "8a5a21ee0a6077a8"
             ]
         ]
     },
     {
-        "id": "c3943166ec0cdfcc",
+        "id": "8a5a21ee0a6077a8",
         "type": "debug",
-        "z": "8164ed23c0fe9bc2",
+        "z": "755f24aa1668b610",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
