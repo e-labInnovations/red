@@ -1,5 +1,0 @@
-{
-    "131f7585af9ce603": {
-        "token": "{env.get(\"BOT_TOKEN\")}"
-    }
-}
