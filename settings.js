@@ -20,7 +20,6 @@
  *
  **/
 var path = require("path");
-var when = require("when");
 require("dotenv").config();
 
 var settings = (module.exports = {
@@ -618,9 +617,9 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
     type: "credentials",
     users: function (username) {
       if (process.env.NODE_RED_USERNAME == username) {
-        return when.resolve({ username: username, permissions: "*" });
+        return Promise.resolve({ username: username, permissions: "*" });
       } else {
-        return when.resolve(null);
+        return Promise.resolve(null);
       }
     },
     authenticate: function (username, password) {
@@ -628,9 +627,9 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
         process.env.NODE_RED_USERNAME == username &&
         process.env.NODE_RED_PASSWORD == password
       ) {
-        return when.resolve({ username: username, permissions: "*" });
+        return Promise.resolve({ username: username, permissions: "*" });
       } else {
-        return when.resolve(null);
+        return Promise.resolve(null);
       }
     },
   };
