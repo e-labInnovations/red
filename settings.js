@@ -413,10 +413,14 @@ var settings = (module.exports = {
     /** The following property can be used to set a custom theme for the editor.
      * See https://github.com/node-red-contrib-themes/theme-collection for
      * a collection of themes to chose from.
+     * Left unset: Node-RED 5 ships native light/dark themes, selectable under
+     * User Settings > View > Appearance (Auto/Light/Dark). A custom theme here
+     * hides that toggle unless the theme declares both schemes.
      */
-    theme: "midnight-red",
+    //theme: "",
     page: {
       // css: path.join(__dirname,"public/css/midnight-red.css")
+      scripts: [path.join(__dirname, "editor/default-theme.js")],
     },
 
     /** To disable the 'Welcome to Node-RED' tour that is displayed the first
