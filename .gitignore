@@ -15,3 +15,6 @@ flows.json
 flows_cred.json
 context/
 logs/
+# Node-RED userDir (flows, creds, context, palette-installed nodes)
+data/
+lib/

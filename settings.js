@@ -57,7 +57,10 @@ var settings = (module.exports = {
    * the user's home directory. To use a different location, the following
    * property can be used
    */
-  userDir: __dirname,
+  // Runtime state (flows, credentials, context, palette-installed nodes and their
+  // package.json) lives here, outside git, so Palette Manager installs never touch
+  // the repo's package.json. Core deps (telegrambot, dashboard, ...) stay in the repo.
+  userDir: process.env.NODE_RED_USER_DIR || path.join(__dirname, "data"),
 
   /** Node-RED scans the `nodes` directory in the userDir to find local node files.
    * The following property can be used to specify an additional directory to scan.
