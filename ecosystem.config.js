@@ -6,7 +6,9 @@ module.exports = {
       cwd: __dirname,
       script: "node_modules/node-red/red.js", // Path to the Node-RED script
       args: ["--settings", "./settings.js"], // Arguments to pass to the script
-      instances: 1,
+      // fork mode so --interpreter (a specific Node binary) is honoured; cluster mode
+      // always uses the pm2 daemon's Node
+      exec_mode: "fork",
       autorestart: true,
       watch: false,
       max_memory_restart: "1G",
