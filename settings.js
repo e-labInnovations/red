@@ -20,7 +20,7 @@
  *
  **/
 var path = require("path");
-require("dotenv").config();
+require("dotenv").config({ path: path.join(__dirname, ".env"), quiet: true });
 
 var settings = (module.exports = {
   /*******************************************************************************
@@ -520,6 +520,8 @@ var settings = (module.exports = {
     // simpleTtsMp3: require("simple-tts-mp3"),
     os: require("os"),
     GoogleGenAI: require("@google/genai").GoogleGenAI,
+    // OpenAI-compatible client; use with baseURL "https://api.groq.com/openai/v1" for Groq
+    OpenAI: require("openai").OpenAI,
   },
 
   /** The maximum number of messages nodes will buffer internally as part of their
